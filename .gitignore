@@ -1,0 +1,7 @@
+# common
+.idea
+*.iml
+.vscode
+.history
+.DS_Store
+
