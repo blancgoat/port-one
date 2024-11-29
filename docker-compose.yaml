@@ -1,7 +1,7 @@
 services:
   portone-php-web:
     build:
-      context: .
+      context: ./docker
       dockerfile: Dockerfile
     ports:
       - "80:80"
