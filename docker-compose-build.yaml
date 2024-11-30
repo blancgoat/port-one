@@ -1,6 +1,8 @@
 services:
   portone-php-web:
-    image: blancgoat/port-one:latest
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
     env_file:
       - .env
     ports:

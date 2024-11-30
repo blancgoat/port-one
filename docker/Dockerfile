@@ -15,6 +15,9 @@ RUN apt install -y zip unzip libzip-dev \
     && docker-php-ext-install zip
 
 RUN a2enmod rewrite
-COPY 000-default.conf /etc/apache2/sites-enabled/000-default.conf
+COPY ./docker/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 WORKDIR /var/www/html
+COPY ./src /var/www/html
+RUN composer install
+RUN chown -R www-data:www-data .
