@@ -2,7 +2,7 @@
 
 namespace App\Models\Payment;
 
-class Payments
+class Payment
 {
 
     const API_URL = 'https://api.iamport.kr';

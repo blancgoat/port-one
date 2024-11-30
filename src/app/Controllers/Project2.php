@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\Payment\Payments;
+use App\Models\Payment\Payment;
 use CodeIgniter\API\ResponseTrait;
 
 
@@ -17,11 +17,11 @@ class Project2 extends BaseController
         $output = [];
         $body = $this->request->getJSON();
 
-        $payModel = new Payments();
+        $paymentModel = new Payment();
 
         // step A
         try {
-            $orders = $payModel->getPayments($body->imp_uid);    
+            $orders = $paymentModel->getPayments($body->imp_uid);    
         } catch (\Exception $e) {
             return $this->respond($e->getMessage(), 500);
         }
@@ -29,7 +29,7 @@ class Project2 extends BaseController
         foreach ($orders as $order) {
             if ($order->status == 'paid') { // step B
                 try {
-                    $output[] = $payModel->cancel($this->orderToCancelBody($order));
+                    $output[] = $paymentModel->cancel($this->orderToCancelBody($order));
                 } catch (\Exception $e) {
                     $output[] = ['order' => $order, 'error' => $e];
                 }

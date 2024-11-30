@@ -7,6 +7,6 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-$routes->get('/project', 'Project::index');
+$routes->get('/project1', 'Project1::index');
 
 $routes->post('/project2', 'Project2::index');
