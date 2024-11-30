@@ -5,6 +5,5 @@
 .history
 .DS_Store
 
-.env
 vendor/
 logs/
